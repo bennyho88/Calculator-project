@@ -1,3 +1,73 @@
+(function() {
+  //global variables
+
+  const inputScreen = document.querySelector('.screen');
+
+  const yellowButtons = document.querySelectorAll('.btn-yellow');
+  const greyButtons = document.querySelectorAll('.btn-grey');
+  const equalButton = document.querySelector('.btn-equal');
+  const clearButton = document.querySelector('.btn-clear');
+
+  
+  // get values from the yellow buttons
+
+  yellowButtons.forEach(yellow => {
+    yellow.addEventListener('click', function(e) {
+      
+      let yellowValue = e.target.getAttribute('data-num')
+      console.log(yellowValue)
+      
+    })
+  })
+
+  // get values from the grey buttons
+
+
+
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 //Wrap code in an IIFE
 (function(){
   
@@ -28,3 +98,4 @@
   })
  
 })(); //end IIFE
+*/
