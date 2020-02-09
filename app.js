@@ -1,136 +1,102 @@
 (function() {
+
   //global variables
 
-  const inputScreen = document.querySelector('.screen');
+  let screen = document.querySelector('.screen');
+  let buttons = document.querySelectorAll('.btn');
 
-  const yellowButtons = document.querySelectorAll('.btn-yellow');
-  const greyButtons = document.querySelectorAll('.btn-grey');
-  const equalButton = document.querySelector('.btn-equal');
-  const clearButton = document.querySelector('.btn-clear');
+  let equal = document.querySelector('.btn-equal');
+  let clear = document.querySelector('.btn-clear');
 
-  let input = '';
- 
-  // get values from the yellow buttons
 
-  yellowButtons.forEach(yellow => {
-    yellow.addEventListener('click', function(e) {
+  // retrieve data from buttons
+
+  buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
       
-      
-      let yellowValue = e.target.getAttribute('data-num')
-      console.log(yellowValue)
-      
-  
+      let value = e.target.dataset.num;
+      console.log(value);
 
-      input += yellowValue;
-
-          // get value to the screen
-      inputScreen.value = input;
-
-      return input;
-      
-      
-      /*
-      if(yellowValue === '*') {
-        input * input
-        console.log('input +: ' * input);
-      } else if (yellowValue === '/') {
-        input / input
-        console.log('input /: ' + input);
-      } else if (yellowValue === '-') {
-        input - input
-        console.log('input -: ' + input);
-      } else if (yellowValue === '+') {
-        input + input
-        console.log('input +: ' + input);
-      }
-      */
+      screen.value += value;
     })
   })
 
-  // get values from the grey buttons
+  // calculate data with equal button
 
-  greyButtons.forEach(grey => {
-    grey.addEventListener('click', function(e) {
+  equal.addEventListener('click', function() {
 
-      
-      let greyValue = e.target.getAttribute('data-num');
-      console.log(greyValue)
-      
+    if(screen.value === '') {
+      screen.value = 'Please input a value';
+    } else {
+      let answer = eval(screen.value);
+      screen.value = answer;
+    }
 
-      // put value to the screen
-      
-    
-      
-      input += greyValue
-      
-      inputScreen.value = input;
-      
-      return input
-     
-      
-    })
   })
 
-  // get value equal button
-/*
-  equalButton.addEventListener('click', function(e) {
+  // reset button
 
-    let total = e.target.value;
-    console.log(total)
+  clear.addEventListener('click', function() {
 
-    
+    screen.value = '';
   })
-*/
-  // get value reset button
-
-clearButton.addEventListener('click', function() {
-
-  // reset screen
-
-  inputScreen.value = '';
-  input = '';
-})
 
 })();
 
 
 
+/*
+(function() {
+ 
+  //global variables
+
+  const inputScreen = document.querySelector('.screen');
+  let buttons = document.querySelectorAll('.btn')
+ 
+  const equalButton = document.querySelector('.btn-equal');
+  const clearButton = document.querySelector('.btn-clear');
 
 
+  // retrieve data from buttons
+  buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
 
+      let buttonValue = e.target.dataset.num;
+      console.log(buttonValue)
 
+      // get value on screen
+      inputScreen.value += buttonValue;
 
+    })
+  })
 
+   // get value equal button
 
+   equalButton.addEventListener('click', function() {
 
+  if(inputScreen.value === '') {
+    inputScreen.value = 'Please enter a value';
+  } else {
+    let answer = eval(inputScreen.value);
+    console.log('check answer: ' + answer);
+    inputScreen.value = answer;
+  }
+  
+})
 
+// get value reset button
 
+clearButton.addEventListener('click', function() {
 
+// reset screen
 
+inputScreen.value = '';
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
+  
+ 
+})();
+*/
 
 /*
 
