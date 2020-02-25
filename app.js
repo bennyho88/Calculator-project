@@ -1,3 +1,142 @@
+
+(function() {
+
+  // select elements
+
+  const btns = document.querySelectorAll('.btn');
+  const screen = document.querySelector('.screen');
+  const btnEqual = document.querySelector('.btn-equal');
+  const btnClear = document.querySelector('.btn-clear');
+
+  btns.forEach(btn => {
+
+    btn.addEventListener('click', function() {
+
+      let number = btn.getAttribute('data-num');
+      console.log(number)
+
+      screen.value += number;
+    
+    })
+  })
+
+  btnEqual.addEventListener('click', function() {
+
+    if(screen.value === '') {
+      screen.value = 'Please Enter A Valid Input';
+    } else {
+      let value = eval(screen.value);
+      screen.value = value;
+    }
+  })
+
+  btnClear.addEventListener('click', function() {
+
+    screen.value = '';
+  })
+
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+(function() {
+
+  // global variables
+
+  let screen = document.querySelector('.screen');
+  let buttons = document.querySelectorAll('.btn');
+  let equal = document.querySelector('.btn-equal');
+  let clear = document.querySelector('.btn-clear');
+
+
+  // retrieve datas from buttons
+  
+  buttons.forEach(button => {
+    button.addEventListener('click', function(e) {
+
+      let value = e.target.dataset.num;
+      
+      screen.value += value;
+    })
+  })
+  // calculate datas with equal button
+
+  equal.addEventListener('click', function() {
+
+    if(screen.value === '') {
+      screen.value = 'Please input a value';
+    } else {
+      let answer = eval(screen.value);
+      screen.value = answer;
+    }
+  })
+
+  // clear button
+
+  clear.addEventListener('click', function() {
+
+    screen.value = '';
+  })
+
+})();
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
 (function() {
 
   //global variables
@@ -44,7 +183,7 @@
 })();
 
 
-
+*/
 /*
 (function() {
  
